@@ -32,7 +32,7 @@ public class ATMInterface {
                     pin = input.nextInt();
 
                     if (atmLogic.checkPin(pin)) {
-                        System.out.println("your balance is: " + atmLogic.balance);
+                        System.out.println("your balance is: " + atmLogic.getBalance(pin));
                     } else {
                         System.out.println("your pin is invalid");
                     }

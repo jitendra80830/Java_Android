@@ -4,10 +4,8 @@ import java.sql.SQLOutput;
 
 public class ATMLogic {
 
-    int bal;
-
-    int pin = 1234;
-    int balance = 2000;
+    private int pin = 1234;
+    private long balance = 2000;
 
 
     public boolean checkPin(int pin) {
@@ -19,7 +17,7 @@ public class ATMLogic {
 
     }
 
-    public int getBalance(int pin) {
+    public long getBalance(int pin) {
         if (checkPin(pin)) {
             return balance;
         }
