@@ -5,9 +5,16 @@ public class BankAccount {
     private int balance;
     private int pin;
 
-    public BankAccount(int pin) {
+    static int counter = 1001;
+
+    public BankAccount(int pin,int balance) {
         this.pin = pin;
-        this.balance = 1000;
+        this.balance = balance;
+        this.accountNo = counter++;
+    }
+
+    public int getPin() {
+        return pin;
     }
 
     public int getBalance() {

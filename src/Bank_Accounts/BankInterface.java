@@ -4,7 +4,7 @@ import java.util.*;
 public class BankInterface {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        int choice,securityPin,accountNo;
+        int choice,securityPin,accountNo,deposiitAmt;
 
         boolean flag = true;
         BankAccount bankAccLogic;
@@ -23,7 +23,7 @@ public class BankInterface {
             System.out.println("\n");
             System.out.println("welcome to bank of india");
             System.out.println("1.create account");
-            System.out.println("2.check balance");
+            System.out.println("2.check details");
             System.out.println("3.withdraw Money");
             System.out.println("4.Deposit money");
             System.out.println("5.change pin");
@@ -35,7 +35,9 @@ public class BankInterface {
                 case 1: //create account
                     System.out.println("Enter your security pin");
                     securityPin = input.nextInt();
-                    bankAccLogic = new BankAccount(securityPin);
+                    System.out.println("Please enter initilize deposit amount");
+                    deposiitAmt = input.nextInt();
+                    bankAccLogic = new BankAccount(securityPin,deposiitAmt);
                     accountsList.add(bankAccLogic);
                     System.out.println("Account created successfully");
                     System.out.println("Total no of bank accounts: "+accountsList.size());
@@ -45,6 +47,18 @@ public class BankInterface {
                     accountNo = input.nextInt();
                     System.out.println("Enter your security pin");
                     securityPin = input.nextInt();
+
+                    for(BankAccount bankAccount : accountsList){
+                        if(bankAccount.getPin() == securityPin && bankAccount.getAccountNo() == accountNo){
+                            System.out.println("Account No: "+bankAccount.getAccountNo());
+                            System.out.println("Balance: "+bankAccount.getBalance());
+                        }else {
+                            System.out.println("Please inter valid account no or security pin");
+
+                        }
+                    }
+
+                    break;
                 case 6:
                     System.out.println("Thank you for using bank");
                     flag = false;
